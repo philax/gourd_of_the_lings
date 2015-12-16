@@ -2,7 +2,7 @@ test:
 	python -m unittest discover -v
 
 junit: coverage
-	py.test --junitxml junit.xml test_character.py
+	py.test --junitxml junit.xml test_character.py test_actor.py
 
 coverage:
 	coverage erase
