@@ -1,7 +1,7 @@
 test:
 	python -m unittest discover -v
 
-junit:
+junit: coverage
 	py.test --junitxml junit.xml test_character.py
 
 coverage:
