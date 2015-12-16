@@ -12,3 +12,8 @@ class TestCharacter(unittest.TestCase):
 		self.assertFalse(self.character.is_alive())
 		self.character.hp = -1
 		self.assertFalse(self.character.is_alive())
+
+	def test_xpgain(self):
+		self.assertEqual(self.character.xp, 0)
+		self.character.gain_xp(10)
+		self.assertEquals(self.character.xp, 10)

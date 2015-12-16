@@ -4,6 +4,9 @@ class Character(Actor):
 		super(Character, self).__init__(base_hp, name, base_dmg)
 		self.xp = 0
 
+	def gain_xp(self, gain):
+		self.xp += gain
+
 	def is_alive(self, is_quiet=False):
 		# print "DEBUG: Character death check for hp: %s"% (self.hp)
 		if self.hp > 0:

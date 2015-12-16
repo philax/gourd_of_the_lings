@@ -14,9 +14,6 @@ class Actor(object):
 	def get_hp(self):
 		print "%s has %s HP."% (self.name, self.hp)
 
-	def gain_xp(self, gain):
-		self.xp += gain
-
 	def is_alive(self, is_quiet=False):
 		# print "DEBUG: Actor death check: %s has %s hp!"% (self.name, str(self.hp))
 		if self.hp > 0:
