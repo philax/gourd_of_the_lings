@@ -7,28 +7,38 @@ class Encounter(object):
 		mob_maker = MobGen()
 		self.mob = mob_maker.generate_mob()
 		self.character = character
-		print self.character
+		self.dmg = 0
 
 		print "A wild %s appeared!"% (self.mob.name)
 		#self.battle()
 
 	def mob_attack(self):
-		self.character.lose_hp(5)
+		self.dmg = 5
+		print "%s attacks %s for %s damage!"% (self.mob.name, self.character.name, self.dmg)
+		self.character.lose_hp(self.dmg)
 
 	def character_attack(self):
-		self.mob.lose_hp(5)
+		self.dmg = 5
+		print "%s attacks %s for %s damage!"% (self.character.name, self.mob.name, self.dmg)
+		self.mob.lose_hp(self.dmg)
 
 	def battle(self):
-		while self.character.is_alive() == True:
-			while self.mob.is_alive() == True:
+		while self.character.is_alive(True) == True:
+			while self.mob.is_alive(True) == True:
 				# print "EVERYONE IS LIVING"
 				self.character_attack()
-				self.mob_attack()
+				if self.mob.is_alive(True) == True:
+					self.mob_attack()
 			print "Victory!"
 			return
-			pass
+			print "Uh oh!"
 
 	#  spawn mob
+	#  prompt to attack? or flee?
+	#  attack
+	#  check if mob is a live
+	#
+	#
 	#  //roll initiative?
 	#  mob attack
 	#  player attack
