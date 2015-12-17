@@ -1,3 +1,7 @@
+flask:
+	docker build -t library .
+	-docker run --rm --name library library
+
 test:
 	python -m unittest discover -v
 
@@ -13,7 +17,6 @@ profile:
 	rm -rf .profile
 	python -m cProfile -o .profile Basic.py
 	python -c "import pstats; pstats.Stats('.profile').sort_stats(2).reverse_order().print_stats(10)"
-
 
 clean:
 	rm -rf .profile .coverage htmlcov
